@@ -154,7 +154,7 @@ const LoginSignup = () => {
             placeholder='Enter password'
           />
         </div>
-        <button onClick={handleSubmit}>Continue</button>
+        <button onClick={handleSubmit}>Continue</button> 
         {state === "Sign Up" ? (
           <p className="loginsignup-login">
             Already have an account? <span onClick={() => setState("Login")}>Login here</span>
