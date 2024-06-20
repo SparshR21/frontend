@@ -18,7 +18,7 @@ function App() {
     <div>
       <BrowserRouter>
       <Navbar/>
-      <Alert message="Kindly Sign Up for accessing the products" /> {/* Example usage of Alert component */}
+      <Alert message="Kindly signup for accessing products" />
       <Routes>
         <Route path='/' element={<Shop/>}/>
         <Route path='/Men' element={<ShopCategory banner = {men_banner} category="men"/>}/>
