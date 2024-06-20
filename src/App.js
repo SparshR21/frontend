@@ -13,8 +13,6 @@ import women_banner from './Components/Assets/banner_women.png'
 import kid_banner from './Components/Assets/banner_kids.png'
 import NewCollections from './Components/NewCollections/NewCollections';
 import Alert from './Components/Alert/Alert';
-
-
 function App() {
   return (
     <div>
