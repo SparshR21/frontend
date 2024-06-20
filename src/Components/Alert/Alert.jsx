@@ -1,5 +1,3 @@
-// components/Alert.js
-
 import React, { useEffect } from 'react';
 
 const Alert = ({ message }) => {
