@@ -142,24 +142,29 @@ const ShopContextProvider = (props) => {
     const [all_product,setAll_Product] = useState([]);
     const [cartItems,setCartItems] = useState(getDefaultCart());
 
-    useEffect(()=>{
+    useEffect(() => {
+        // Fetch products first, independent of authentication
         fetch(`${baseUrl}/allproducts`)
-        .then((response)=>response.json())
-        .then((data)=>setAll_Product(data))
-
-        if(localStorage.getItem('auth-token')){
-            fetch(`${baseUrl}/getcart`,{
-                method:'POST',
-                headers:{
-                    Accept:'app;ication/form-data',
-                    'auth-token':`${localStorage.getItem('auth-token')}`,
-                    'Content-Type':'application.json',
+            .then((response) => response.json())
+            .then((data) => setAll_Product(data))
+            .catch((err) => console.error('Error fetching products:', err)); // Log any fetch error for debugging
+    
+        // Check if the user is logged in by checking for the 'auth-token'
+        if (localStorage.getItem('auth-token')) {
+            fetch(`${baseUrl}/getcart`, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', // Fix the typo in 'application/form-data'
+                    'auth-token': `${localStorage.getItem('auth-token')}`,
+                    'Content-Type': 'application/json', // Fix the typo in 'application.json'
                 },
-                body:"",
-            }).then((response)=>response.json())
-            .then((data)=>setCartItems(data));
+                body: "", // You can remove this or send necessary data in body if required
+            })
+            .then((response) => response.json())
+            .then((data) => setCartItems(data))
+            .catch((err) => console.error('Error fetching cart:', err)); // Log any fetch error for debugging
         }
-    },[])
+    }, []);
     
     const addToCart = (itemId) =>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
