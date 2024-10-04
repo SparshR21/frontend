@@ -1,1 +1,1 @@
-export const baseUrl = `https://stylekartbackend.netlify.app`
+export const baseUrl = `http://localhost:4000`

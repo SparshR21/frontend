@@ -12,6 +12,7 @@ import men_banner from './Components/Assets/banner_mens.png'
 import women_banner from './Components/Assets/banner_women.png'
 import kid_banner from './Components/Assets/banner_kids.png'
 import NewCollections from './Components/NewCollections/NewCollections';
+import Alert from './Components/Alert/Alert';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <div>
       <BrowserRouter>
       <Navbar/>
+      <Alert message="Kindly Sign Up for accessing the products" /> {/* Example usage of Alert component */}
       <Routes>
         <Route path='/' element={<Shop/>}/>
         <Route path='/Men' element={<ShopCategory banner = {men_banner} category="men"/>}/>
